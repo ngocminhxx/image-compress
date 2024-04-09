@@ -14,7 +14,11 @@
 
 <div class="container">
     <input type="file" id="file-input" multiple />
+    <label for="quality-input">Compression Quality:</label>
+    <input type="range" id="quality-input" min="0" max="1" step="0.1" value="0.9">
+    <span id="quality-value">0.9</span>
     <button id="compress-btn">Compress Images</button>
+
 
 </div>
 

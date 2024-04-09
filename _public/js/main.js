@@ -7448,58 +7448,73 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jszip__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jszip */ "./node_modules/jszip/dist/jszip.min.js");
 /* harmony import */ var jszip__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jszip__WEBPACK_IMPORTED_MODULE_1__);
 
- // Make sure to include JSZip in your project
+ // Ensure JSZip is included for multiple files
 
 document.getElementById("compress-btn").addEventListener("click", () => {
   const files = document.getElementById("file-input").files;
-  const imageNames = [];
-  const zip = new (jszip__WEBPACK_IMPORTED_MODULE_1___default())();
+  const quality = parseFloat(document.getElementById("quality-input").value);
 
-  for (let i = 0; i < files.length; i++) {
-    new (compressorjs__WEBPACK_IMPORTED_MODULE_0___default())(files[i], {
-      quality: 0.8,
+  if (files.length === 1) {
+    // If only one file is selected, compress it and provide a download link
+    new (compressorjs__WEBPACK_IMPORTED_MODULE_0___default())(files[0], {
+      quality: quality,
       success(result) {
-        // Convert the Blob to a File and keep the original extension
         const compressedFile = new File([result], result.name, {
           type: result.type,
           lastModified: Date.now(),
         });
 
-        // Store compressed file for download
-        zip.file(compressedFile.name, compressedFile);
-
-        // Add the name to the list
-        imageNames.push(compressedFile.name);
-
-        // If all files are processed, create a download button
-        if (imageNames.length === files.length) {
-          const button = document.createElement("button");
-          button.textContent = "Download All Compressed Images";
-          button.addEventListener("click", () => {
-            zip.generateAsync({ type: "blob" }).then((content) => {
-              const link = document.createElement("a");
-              link.href = URL.createObjectURL(content);
-              link.download = "compressed_images.zip";
-              link.click();
-            });
-          });
-          document.body.appendChild(button);
-
-          // Display the names of all compressed images
-          const list = document.createElement("ul");
-          imageNames.forEach((name) => {
-            const listItem = document.createElement("li");
-            listItem.textContent = name;
-            list.appendChild(listItem);
-          });
-          document.body.appendChild(list);
-        }
+        const url = URL.createObjectURL(compressedFile);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = compressedFile.name;
+        link.textContent = `Download Compressed ${compressedFile.name}`;
+        document.body.appendChild(link);
       },
       error(err) {
         console.error(err.message);
       },
     });
+  } else {
+    // For multiple files, compress and add to zip
+    const zip = new (jszip__WEBPACK_IMPORTED_MODULE_1___default())();
+    let count = 0;
+
+    for (let i = 0; i < files.length; i++) {
+      new (compressorjs__WEBPACK_IMPORTED_MODULE_0___default())(files[i], {
+        quality: quality,
+        success(result) {
+          const compressedFile = new File([result], result.name, {
+            type: result.type,
+            lastModified: Date.now(),
+          });
+
+          zip.file(compressedFile.name, compressedFile);
+          count++;
+
+          if (count === files.length) {
+            // Once all files are compressed, provide a download link for the zip
+            zip.generateAsync({ type: "blob" }).then((content) => {
+              const link = document.createElement("a");
+              link.href = URL.createObjectURL(content);
+              link.download = "compressed_images.zip";
+              link.textContent = "Download All Compressed Images";
+              document.body.appendChild(link);
+            });
+          }
+        },
+        error(err) {
+          console.error(err.message);
+        },
+      });
+    }
   }
+});
+
+// Update the displayed quality value when the slider changes
+document.getElementById("quality-input").addEventListener("input", () => {
+  const qualityValue = document.getElementById("quality-input").value;
+  document.getElementById("quality-value").textContent = qualityValue;
 });
 
 
