@@ -4,6 +4,7 @@ import JSZip from "jszip"; // Ensure JSZip is included for multiple files
 document.getElementById("compress-btn").addEventListener("click", () => {
   const files = document.getElementById("file-input").files;
   const quality = parseFloat(document.getElementById("quality-input").value);
+  const output = document.getElementById("result");
 
   if (files.length === 1) {
     // If only one file is selected, compress it and provide a download link
@@ -20,7 +21,8 @@ document.getElementById("compress-btn").addEventListener("click", () => {
         link.href = url;
         link.download = compressedFile.name;
         link.textContent = `Download Compressed ${compressedFile.name}`;
-        document.body.appendChild(link);
+        link.className = "btn btn-warning me-4 mb-4";
+        output.appendChild(link);
       },
       error(err) {
         console.error(err.message);
@@ -50,7 +52,8 @@ document.getElementById("compress-btn").addEventListener("click", () => {
               link.href = URL.createObjectURL(content);
               link.download = "compressed_images.zip";
               link.textContent = "Download All Compressed Images";
-              document.body.appendChild(link);
+              link.className = "btn btn-warning me-4 mb-4";
+              output.appendChild(link);
             });
           }
         },

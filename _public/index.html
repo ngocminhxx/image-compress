@@ -5,22 +5,29 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>XXX</title>
+<title>Image compressor by Hung</title>
 <meta name="description" content="">
 
 <link href="css/style.min.css?v=1" rel="stylesheet">
 </head>
 <body>
 
-<div class="container">
-    <input type="file" id="file-input" multiple />
+<div class="container p-4">
+    <h1 class="mb-4 text-center">
+        IMAGE COMPRESSOR
+    </h1>
+
+    <input type="file" id="file-input" class="form-control mb-3" multiple />
     <label for="quality-input">Compression Quality:</label>
-    <input type="range" id="quality-input" min="0" max="1" step="0.1" value="0.9">
-    <span id="quality-value">0.9</span>
-    <button id="compress-btn">Compress Images</button>
+    <input type="range" id="quality-input" class="form-range" min="0" max="1" step="0.1" value="0.8">
+    <span id="quality-value" class="text-success">0.8</span>
 
-
+    <div class="mt-4">
+        <button id="compress-btn" class="btn btn-success">Compress Images</button>
+    </div>
 </div>
+
+<div id="result" class="container mt-5"></div>
 
 <script src="js/main.js"></script>
 </body>
