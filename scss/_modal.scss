@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+// ----------------------------------------------
+.modal-vertical-middle {
+  overflow: hidden !important;
+
+  .modal-dialog {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-top: 0;
+    margin-bottom: 0;
+    pointer-events: none;
+  }
+
+  .modal-content {
+    width: 100%;
+    margin: 0 auto;
+    pointer-events: auto;
+  }
+}

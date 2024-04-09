@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+// ----------------------------------------------
+@mixin row-variant($parent, $grid-gutter-width) {
+  #{$parent} {
+    margin-right: -$grid-gutter-width;
+    margin-left: -$grid-gutter-width;
+
+    > div,
+    > li {
+      padding-right: $grid-gutter-width;
+      padding-left: $grid-gutter-width;
+    }
+  }
+}
+
+// ----------------------------------------------
+@include row-variant(".row-0", 0);
+@include row-variant(".row-5", 5px);
+@include row-variant(".row-10", 10px);
+
+// ----------------------------------------------
+@include media-breakpoint-down(sm) {
+  @include row-variant(".row-5-xs", 5px);
+}
+
+// ----------------------------------------------
+// gutter class has only padding left & right.
+.gutter-15 {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.gutter-0-sm {
+  @include media-breakpoint-down(sm) {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+// ----------------------------------------------
+.col-base {
+  position: relative;
+  min-height: 1px;
+}
+
+// ----------------------------------------------
+.col-xs-15 {
+  float: left;
+  width: 20%;
+}
+
+@include media-breakpoint-up(sm) {
+  .col-sm-15 {
+    float: left;
+    width: 20%;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .col-md-15 {
+    float: left;
+    width: 20%;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .col-lg-15 {
+    float: left;
+    width: 20%;
+  }
+}
+
+// ----------------------------------------------
+.col-sidebar,
+.col-main {
+  position: relative;
+  margin-top: 60px;
+}
+
+// ----------------------------------------------
+.col-sidebar {
+  @include media-breakpoint-up(sm) {
+    width: 30%;
+  }
+}
+
+// ----------------------------------------------
+.col-main {
+  @include media-breakpoint-up(sm) {
+    width: 70%;
+  }
+}
+
+//
+// custom column
+// --------------------------------------------------
+@include media-breakpoint-up(sm) {
+  .col-sm-524 {
+    float: left;
+    width: 52.4%;
+  }
+
+  .col-sm-476 {
+    float: left;
+    width: 47.6%;
+  }
+}
+
+// --------------------------------------------------
+.container-fluid-0 {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+// ----------------------------------------------
+.container-img-parallax {
+  max-width: 1920px;
+  margin-top: 200px;
+  margin-bottom: 100px;
+
+  @include media-breakpoint-down(sm) {
+    margin-top: 100px;
+    margin-bottom: 150px;
+  }
+}

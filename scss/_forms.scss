@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+// ----------------------------------------------
+label {
+  cursor: pointer;
+
+  &.error {
+    padding: 5px 10px;
+    font-size: 13px;
+    color: #fff;
+    cursor: default;
+    background-color: #f00;
+  }
+}
+
+// ----------------------------------------------
+select {
+  cursor: pointer;
+}
+
+// ----------------------------------------------
+.form-container {
+  .list-inline {
+    margin-bottom: 0;
+    margin-left: -10px;
+
+    li {
+      margin-right: 10px;
+      margin-left: 10px;
+
+      @include media-breakpoint-down(sm) {
+        display: block;
+      }
+    }
+  }
+}
+
+// ----------------------------------------------
+.form-inline {
+  .form-control {
+    vertical-align: 1px;
+  }
+}
+
+// ----------------------------------------------
+.form-inline-force {
+  &.form-control {
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+// ----------------------------------------------
+.form-floating {
+  .form-control {
+    height: auto;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    line-height: 1.4;
+  }
+}
+
+// ----------------------------------------------
+.form-check-inline {
+  padding-left: 1.5em;
+
+  .form-check-input {
+    float: left;
+    margin-left: -1.5em;
+  }
+}

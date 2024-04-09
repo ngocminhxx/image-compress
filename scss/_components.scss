@@ -1,0 +1,409 @@
+@charset "UTF-8";
+
+// ----------------------------------------------
+footer {
+  margin-top: 60px;// default space on each pages.
+}
+
+// ----------------------------------------------
+// Use with grBackToTop.js
+// See example: https://gitlab.com/yugo.asia/scsk.jp-sp-panzura
+.page-top {
+  position: fixed;// Required for grBackToTop.js
+  right: 20px;
+  bottom: 0;// Required for grBackToTop.js
+  z-index: 999;
+  width: 50px;
+  height: 50px;
+  transition: none;
+
+  @include media-breakpoint-down(sm) {
+    right: 0;
+  }
+
+  &:hover {
+    .bg-color {
+      fill: #00aaad;
+    }
+  }
+}
+
+// ----------------------------------------------
+.balloon-elastic {
+  position: relative;
+  max-width: 774px;
+  margin-bottom: 15px;
+  clear: both;
+
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 10px;
+    font-size: 3.8vw;
+  }
+
+  &:before,
+  &:after {
+    position: absolute;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    display: block;
+    height: 20px;
+    content: "";
+
+    @include media-breakpoint-down(sm) {
+      height: 10px;
+    }
+  }
+
+  &:before {
+    top: 0;
+  }
+
+  &:after {
+    bottom: 0;
+  }
+
+  &.left {
+    margin-left: 178px;
+
+    @include media-breakpoint-down(sm) {
+      margin-left: 128px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      margin-left: 64px;
+    }
+
+    .body {
+      &:before {
+        left: -126px;
+
+        @include media-breakpoint-down(sm) {
+          left: -63px;
+        }
+      }
+    }
+  }
+
+  &.right {
+    margin-right: 178px;
+    margin-left: 50px;
+
+    @include media-breakpoint-down(sm) {
+      margin-right: 128px;
+      margin-left: 0;
+    }
+
+    @include media-breakpoint-down(sm) {
+      margin-right: 64px;
+    }
+
+    .body {
+      &:before {
+        right: -126px;
+
+        @include media-breakpoint-down(sm) {
+          right: -63px;
+        }
+      }
+    }
+  }
+
+  .body {
+    padding: 40px 80px;
+
+    @include media-breakpoint-down(sm) {
+      padding: 30px 40px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      padding: 10px;
+    }
+
+    &:before {
+      position: absolute;
+      top: 50%;
+      z-index: 5;
+      width: 128px;
+      height: 37px;
+      content: "";
+
+      @include media-breakpoint-down(sm) {
+        width: 64px;
+        height: 18.5px;
+      }
+    }
+  }
+
+  &.balloon-blue {
+    background: url("../img/balloon/blue-body.png") repeat-y 50% 0 / 100%;
+
+    &:before {
+      background: url("../img/balloon/blue-header.png") no-repeat 0 0 / 100%;
+    }
+
+    &:after {
+      background: url("../img/balloon/blue-footer.png") no-repeat 0 100% / 100%;
+    }
+
+    &.left {
+      .body {
+        &:before {
+          background: url("../img/balloon/blue-left-arrow.png") no-repeat 0 0 / cover;
+        }
+      }
+    }
+
+    &.right {
+      .body {
+        &:before {
+          background: url("../img/balloon/blue-right-arrow.png") no-repeat 0 0 / cover;
+        }
+      }
+    }
+  }
+
+  &.balloon-cyan {
+    background: url("../img/balloon/cyan-body.png") repeat-y 50% 0 / 100%;
+
+    &:before {
+      background: url("../img/balloon/cyan-header.png") no-repeat 0 0 / 100%;
+    }
+
+    &:after {
+      background: url("../img/balloon/cyan-footer.png") no-repeat 0 100% / 100%;
+    }
+
+    &.left {
+      .body {
+        &:before {
+          background: url("../img/balloon/cyan-left-arrow.png") no-repeat 0 0 / cover;
+        }
+      }
+    }
+
+    &.right {
+      .body {
+        &:before {
+          background: url("../img/balloon/cyan-right-arrow.png") no-repeat 0 0 / cover;
+        }
+      }
+    }
+  }
+}
+
+// ----------------------------------------------
+.banner-fixed-bottom {
+  padding-top: 4.5px;
+  padding-bottom: 4.5px;
+  color: #fff;
+  text-align: center;
+  transition: all .3s;
+
+  .cell {
+    width: 50%;
+    vertical-align: middle;
+
+    @include media-breakpoint-down(sm) {
+      padding: 0 .5rem;
+    }
+  }
+
+  .container {
+    @include media-breakpoint-down(sm) {
+      padding-right: 5px;
+      padding-left: 5px;
+    }
+  }
+
+  .title {
+    margin-top: 0;
+    margin-bottom: 2px;
+    font-size: 2.5vw;
+  }
+
+  &.is-hidden {
+    bottom: -70px;
+  }
+}
+
+// ----------------------------------------------
+.layout-card {
+  $card-border-radius: 10px;
+  $card-border-radius-sm: 5px;
+
+  max-width: 320px;
+  min-height: 320px;
+  padding: 8px 22px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: $card-border-radius;
+
+  @include media-breakpoint-down(sm) {
+    min-height: 140px;
+    padding: 4px 9px;
+    margin-bottom: 10px;
+    border-radius: $card-border-radius-sm;
+  }
+
+  .title {
+    margin-top: 10px;
+    margin-bottom: 55px;
+    font-size: 12px;
+
+    @include media-breakpoint-down(sm) {
+      margin-top: 2px;
+      margin-bottom: 15px;
+      font-size: 8px;
+    }
+  }
+}
+
+// ----------------------------------------------
+.hover-zoom {
+  position: relative;
+  display: block;
+  -webkit-mask-image: -webkit-radial-gradient(#fff, #000);
+
+  &,
+  &:hover,
+  &:focus {
+    color: #fff;
+  }
+
+  .title {
+    position: relative;
+    z-index: 10;
+  }
+
+  &.puzzle {
+    &:before {
+      background: url("../img/common/puzzle.png") no-repeat 50% 50%;
+    }
+  }
+
+  &:before {
+    @include transition(all .3s ease);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    background-size: cover;
+    content: "";
+  }
+
+  &:after {
+    @include transition(all .3s ease);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 40%);
+    content: "";
+    opacity: 0;
+  }
+
+  .caption {
+    @include transition(all .3s ease);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    padding: 24px 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 40%);
+
+    @include media-breakpoint-down(sm) {
+      padding-top: 10px;
+      padding-bottom: 8px;
+      font-size: 10px;
+    }
+  }
+
+  &:hover {
+    overflow: hidden;
+    text-decoration: none;
+
+    &:before {
+      transform: scale(1.2);
+    }
+
+    &:after {
+      width: 150%;
+      height: 150%;
+      opacity: .5;
+    }
+
+    .caption {
+      padding-top: 30px;
+      padding-bottom: 30px;
+      background-color: rgba(0, 109, 187, 70%);
+
+      @include media-breakpoint-down(sm) {
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+    }
+  }
+}
+
+// ----------------------------------------------
+.sidebar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  flex-flow: row;
+  justify-content: center;
+  width: 72px;
+  font-size: 12px;
+  color: #1a1a1a;
+  text-align: center;
+  background-color: #fff;
+
+  @include media-breakpoint-down(sm) {
+    display: none;
+  }
+
+  .list-social {
+    padding-left: 0;
+    list-style: none;
+
+    > li {
+      margin-bottom: 30px;
+
+      &:first-of-type {
+        padding-bottom: 27px;
+        margin-bottom: 35px;
+        margin-left: 4px;
+        line-height: 1.3;
+        letter-spacing: .1em;
+        border-bottom: 1px solid #000;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

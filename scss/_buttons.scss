@@ -1,0 +1,334 @@
+@charset "UTF-8";
+
+// ----------------------------------------------
+@mixin button-variant-hover-bright($background, $border, $color) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &:focus,
+  &.focus {
+    color: $color;
+    background-color: lighten($background, 10%);
+    border-color: lighten($border, 25%);
+  }
+
+  &:hover {
+    color: $color;
+    background-color: lighten($background, 10%);
+    border-color: lighten($border, 12%);
+  }
+
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: $color;
+    background-color: lighten($background, 10%);
+    border-color: lighten($border, 12%);
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: $color;
+      background-color: lighten($background, 17%);
+      border-color: lighten($border, 25%);
+    }
+  }
+
+  &:active,
+  &.active {
+    background-image: none;
+  }
+
+  .open > & {
+    .dropdown-toggle {
+      background-image: none;
+    }
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: $background;
+      border-color: $border;
+    }
+  }
+
+  // .badge {
+  //   color: $background;
+  //   background-color: $color;
+  // }
+}
+
+// ----------------------------------------------
+@mixin button-variant-hover-inverse($background, $border, $color) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  &:focus,
+  &.focus {
+    color: $background;
+    background-color: $color;
+    // border-color: darken($border, 25%);
+  }
+
+  &:hover {
+    color: $background;
+    background-color: $color;
+    // border-color: darken($border, 12%);
+  }
+
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: $background;
+    background-color: $color;
+    // border-color: darken($border, 12%);
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: $background;
+      background-color: $color;
+      // border-color: darken($border, 25%);
+    }
+  }
+
+  &:active,
+  &.active {
+    background-image: none;
+  }
+
+  .open > & {
+    .dropdown-toggle {
+      background-image: none;
+    }
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: $background;
+      // border-color: $border;
+    }
+  }
+
+  // .badge {
+  //   color: $background;
+  //   background-color: $color;
+  // }
+}
+
+// Button
+// ----------------------------------------------
+// .btn-*** {
+//   @include button-variant($btn-default-bg, $btn-default-border, $btn-default-color);
+// }
+
+// ----------------------------------------------
+.btn-multiline {
+  white-space: normal;
+}
+
+// ----------------------------------------------
+.btn {
+  @include transition(all $hover-transition-speed ease);
+
+  &.arrow-blue-left {
+    display: inline-block;
+    padding-left: 30px;
+    background-image: url("../img/arrow/arrow-blue-left.png");
+    background-position: 5% 50%;
+    background-repeat: no-repeat;
+  }
+
+  &.arrow-blue-right {
+    display: inline-block;
+    padding-right: 30px;
+    background-image: url("../img/arrow/arrow-blue-right.png");
+    background-position: 95% 50%;
+    background-repeat: no-repeat;
+  }
+
+  &.arrow-circle-right {
+    position: relative;
+    display: inline-block;
+    padding: 15px 90px 11px;
+
+    @include media-breakpoint-down(sm) {
+      display: block;
+    }
+
+    &:before,
+    &:after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      display: inline-block;
+      margin-top: auto;
+      margin-bottom: auto;
+      content: "";
+    }
+
+    &:before {
+      width: 20px;
+      height: 20px;
+      margin-right: 15px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+    }
+
+    &:after {
+      width: 6px;
+      height: 6px;
+      margin-right: 23px;
+      border-top: 2px solid #fff;
+      border-right: 2px solid #fff;
+      transform: rotate(45deg);
+    }
+  }
+}
+
+// ----------------------------------------------
+.btn-gradient-orange-animated {
+  @include button-variant(transparent, #fff, #fff);
+  position: relative;
+  z-index: 1;
+  padding: 20px 40px;
+  border: 0;
+  border-radius: 0;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+  }
+
+  &:hover {
+    box-shadow: 0 0 15px 0 rgba(255, 255, 255, 900%);
+
+    &:after {
+      opacity: 1;
+    }
+  }
+
+  &:after {
+    @include transition(all .3s ease);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    background-color: #ccc;
+    background-image: linear-gradient(to bottom, #f29e32 0, #ef8701 100%);
+
+    content: "";
+    opacity: 0;
+  }
+
+  &,
+  &:active {
+    background-image: linear-gradient(to bottom, #ef8701 0, #f29e32 100%);
+  }
+}
+
+// ----------------------------------------------
+.btn-invert-purple {
+  $letter-spacing: .11em;
+
+  @include button-variant(#fff, #a94579, #a94579);
+  padding: 15px 4em 13px 4 + $letter-spacing;
+  margin-bottom: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: $letter-spacing;
+  background: linear-gradient(to right, #fff 50%, #a94579 50%);
+  background-size: 202% 100%;
+  border-radius: 3px;
+  transition: background-position 400ms cubic-bezier(.76, 0, .24, 1), all ease 500ms;
+
+  @include media-breakpoint-down(sm) {
+    font-size: 11px;
+  }
+
+  &.bg-light-gray {
+    background: linear-gradient(to right, #f2f2f2 50%, #a94579 50%);
+    background-size: 200% 100%;
+  }
+
+  &.arrow-purple {
+    position: relative;
+
+    &:before,
+    &:after {
+      position: absolute;
+      top: 0;
+      right: 18px;
+      bottom: 0;
+      width: 14px;
+      height: 3px;
+      margin-top: auto;
+      margin-bottom: auto;
+      content: "";
+      transition: all ease 500ms;
+    }
+
+    &:before {
+      background: url("../img/icon/arrow-half-right-dark-pink.svg") 0 0 no-repeat;
+    }
+
+    &:after {
+      background: url("../img/icon/arrow-half-right-white.svg") 0 0 no-repeat;
+      opacity: 0;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    &,
+    &:active {
+      @include box-shadow (none);
+      color: #fff !important;
+      background-color: #a94579;
+      background-position: -99% 0;
+
+      &.arrow-purple {
+        &:before,
+        &:after {
+          right: 13px;
+        }
+
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+// ----------------------------------------------
+.btn-dark-blue-hover-inverse {
+  @include button-variant-hover-inverse(#052029, #052029, #fff);
+  max-width: 264px;
+  margin-top: 28px;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 14px;
+  border-radius: 0;
+
+  &:focus {
+    color: #fff;
+    background-color: #052029;
+    border: 1px solid #052029;
+    outline: 0;
+  }
+}

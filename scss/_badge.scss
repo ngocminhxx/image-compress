@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+// ----------------------------------------------
+.badge {
+  text-decoration: none;
+
+  &.has-space {
+    margin-bottom: 3px;
+  }
+}
+
+// ----------------------------------------------
+.badge-border-gray {
+  color: #000;
+  border: 1px solid #9b9b9b;
+
+  &:hover {
+    color: #fff;
+    background-color: #595757;
+    border: 1px solid #9b9b9b;
+  }
+}

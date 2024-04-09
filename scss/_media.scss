@@ -1,0 +1,251 @@
+@charset "UTF-8";
+
+// ----------------------------------------------
+.d-flex-elastic-thumbnail {
+  margin-bottom: 15px;
+  background-color: #fff;
+
+  .flex-shrink-0 {
+    min-width: 130px;
+    padding-bottom: 36%;
+
+    @include media-breakpoint-down(sm) {
+      min-width: 75px;
+      padding-bottom: 30%;
+    }
+
+    &.img-1 {
+      background: url("../img/media/img-1.png") no-repeat 50% 50%/cover;
+    }
+  }
+
+  .flex-grow-1 {
+    padding-left: 15px;
+  }
+}
+
+// ----------------------------------------------
+.d-flex-bordered-blue {
+  background-color: transparent;
+  border: 5px solid #355ea6;
+  border-radius: 10px;
+
+  .flex-shrink-0 {
+    min-width: 200px;
+    padding-bottom: 15%;
+
+    @include media-breakpoint-down(md) {
+      min-height: 200px;
+    }
+  }
+
+  .flex-grow-1 {
+    padding: 15px;
+  }
+
+  .img-cleaning-2 {
+    background: url("../img/media/img-1.png") 50% 50% no-repeat;
+    background-size: cover;
+  }
+}
+
+// ----------------------------------------------
+.d-flex-separated {
+  border-top: 1px solid #000;
+
+  .flex-shrink-0,
+  .flex-grow-1 {
+    padding-top: 20px;
+
+    @include media-breakpoint-down(sm) {
+      padding-top: 10px;
+    }
+  }
+
+  .flex-shrink-0 {
+    min-width: 174px;
+    font-weight: bold;
+    border-right: 1px solid #000;
+
+    @include media-breakpoint-up(sm) {
+      font-size: 18px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      min-width: 100px;
+    }
+  }
+
+  .flex-grow-1 {
+    padding-left: 26px;
+
+    @include media-breakpoint-down(sm) {
+      padding-left: 15px;
+    }
+  }
+}
+
+// ----------------------------------------------
+.d-flex-styled {
+  padding: 10px;
+
+  .flex-shrink-0 {
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+
+    @include media-breakpoint-up(sm) {
+      // height: 160px;
+      min-width: 240px;
+      font-size: 20px;
+    }
+  }
+
+  &.gray {
+    background-color: #eee;
+
+    .flex-shrink-0 {
+      background-color: #999;
+    }
+  }
+
+  &.d-flex-xs {
+    .flex-shrink-0 {
+      @include media-breakpoint-down(sm) {
+        padding-right: 10px !important;
+      }
+    }
+  }
+
+  .flex-grow-1 {
+    @include media-breakpoint-up(sm) {
+      padding-left: 10px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      padding-top: 10px;
+    }
+  }
+
+  ul {
+    margin-bottom: 0;
+  }
+}
+
+// ----------------------------------------------
+.d-flex-img-parallax {
+  .flex-shrink-0 {
+    position: relative;
+    height: 900px;
+    min-width: 770px;
+    padding-right: 0;
+
+    @include media-breakpoint-only(md) {
+      min-width: 45vw;
+    }
+
+    @include media-breakpoint-only(sm) {
+      height: 600px;
+      min-width: 40vw;
+    }
+
+    @include media-breakpoint-down(sm) {
+      height: 400px;
+      min-width: 100%;
+    }
+  }
+
+  .flex-grow-1 {
+    padding-right: 150px;
+
+    @include media-breakpoint-only(sm) {
+      padding-right: 120px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      padding-top: 35px;
+      padding-right: 0;
+    }
+  }
+
+  .img-parallax {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    overflow: hidden;
+
+    .bg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    &.img-1 {
+      left: -100px;
+      z-index: 2;
+      width: 580px;
+      height: 800px;
+
+      @include media-breakpoint-only(md) {
+        left: -12vw;
+        width: 38vw;
+      }
+
+      @include media-breakpoint-only(sm) {
+        width: 41vw;
+        height: 80vw;
+      }
+
+      @media (max-width: 990px) and (min-width: 768px) {
+        top: 74%;
+      }
+
+      @include media-breakpoint-down(sm) {
+        top: 50px;
+        left: 0;
+        width: 60vw;
+        height: 350px;
+      }
+
+      .bg {
+        background: url("../img/common/building-1.jpg") 50% 50% no-repeat;
+        background-size: cover;
+      }
+    }
+
+    &.img-2 {
+      width: 500px;
+      height: 720px;
+
+      @include media-breakpoint-only(md) {
+        width: 32vw;
+      }
+
+      @include media-breakpoint-only(sm) {
+        width: 35vw;
+        height: 64vw;
+      }
+
+      @include media-breakpoint-down(sm) {
+        width: 58vw;
+        height: 300px;
+      }
+
+      .bg {
+        background: url("../img/common/building-2.jpg") 50% 50% no-repeat;
+        background-size: cover;
+      }
+    }
+  }
+}
+
+// ----------------------------------------------
+// .d-flex-xs {
+//   @include media-breakpoint-down(md) {
+//     flex-wrap: wrap;
+//   }
+// }

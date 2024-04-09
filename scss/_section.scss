@@ -1,0 +1,256 @@
+@charset "UTF-8";
+
+// ----------------------------------------------
+.section-news {
+  .title {
+    margin-bottom: 25px;
+  }
+
+  dl {
+    padding: 0 10px 10px;
+    margin-top: 14px;
+    border-bottom: 1px dashed #bababa;
+  }
+
+  dt,
+  dd {
+    line-height: 1.4;
+  }
+
+  dt {
+    position: relative;
+    padding-right: 15px;
+    padding-left: 15px;
+    white-space: nowrap;
+
+    &:before {
+      position: absolute;
+      top: 3px;
+      left: 0;
+      font-size: 11px;
+      color: #003366;
+      content: ">";
+
+      @include media-breakpoint-down(sm) {
+        top: 2px;
+      }
+    }
+  }
+}
+
+// ----------------------------------------------
+.section-process {
+  .box {
+    height: 243px;
+    padding-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+
+    @include media-breakpoint-up(lg) {
+      width: 200px;
+    }
+
+    @include media-breakpoint-up(xl) {
+      width: 254px;
+    }
+  }
+
+  .table-cell {
+    font-size: 20px;
+    color: #fff;
+  }
+
+  .bg-1 {
+    background: url("../img/common/bg-1.png") no-repeat 50% 50%;
+  }
+
+  .bg-2 {
+    background: url("../img/common/bg-2.png") no-repeat 50% 50%;
+  }
+
+  .bg-3 {
+    background: url("../img/common/bg-3.png") no-repeat 50% 50%;
+  }
+
+  .bg-4 {
+    background: url("../img/common/bg-4.png") no-repeat 50% 50%;
+  }
+}
+
+// ----------------------------------------------
+.section-timeline {
+  position: relative;
+
+  @include media-breakpoint-up(md) {
+    padding-left: 270px;
+    background: url("../img/icon/timeline-bar.png") repeat-y 20px 0;
+  }
+
+  @include media-breakpoint-up(sm) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .time-1000 {
+      top: 15px;
+    }
+
+    .time-1400 {
+      top: 180px;
+    }
+
+    .time-1500 {
+      top: 262px;
+    }
+  }
+
+  .time {
+    font-size: 20px;
+    color: #96a89a;
+
+    @include media-breakpoint-up(md) {
+      position: absolute;
+      left: 0;
+    }
+
+    @include media-breakpoint-down(sm) {
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+
+    .icon {
+      margin-right: 5px;
+
+      @include media-breakpoint-up(sm) {
+        margin-right: 15px;
+      }
+    }
+  }
+
+  .memo {
+    margin-left: 25px;
+    color: #009640;
+  }
+
+  p {
+    @include media-breakpoint-down(sm) {
+      margin-bottom: 15px;
+    }
+  }
+}
+
+// ----------------------------------------------
+.section-col-2 {
+  background-color: #f0f1f2;
+
+  @include media-breakpoint-up(sm) {
+    font-size: 16px;
+  }
+
+  .container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .title {
+    margin-top: 60px;
+
+    @include media-breakpoint-down(sm) {
+      margin-top: 30px;
+    }
+  }
+
+  .body {
+    @include media-breakpoint-up(md) {
+      max-width: 450px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      padding-right: 15px;
+      padding-bottom: 15px;
+      padding-left: 15px;
+    }
+
+    &.pull-right {
+      @include media-breakpoint-up(md) {
+        margin-right: 50px;
+        margin-left: 20px;
+      }
+
+      @include media-breakpoint-down(sm) {
+        float: none !important;
+      }
+    }
+
+    &.pull-left {
+      padding-top: 7px;
+
+      @include media-breakpoint-up(md) {
+        margin-right: 50px;
+        margin-left: 50px;
+      }
+
+      @include media-breakpoint-up(sm) {
+        margin-right: 20px;
+      }
+
+      @include media-breakpoint-down(sm) {
+        float: none !important;
+      }
+    }
+  }
+
+  .row-btns {
+    margin-right: 0;
+    margin-left: 0;
+
+    > div {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  }
+}
+
+// ----------------------------------------------
+.section-fv-with-sidebar {
+  position: relative;
+  height: 100vh;
+  margin-bottom: 50px;
+  color: #fff;
+  background: url("../img/section/fv-bg/bg-farm.jpg") 50% 50% no-repeat;
+  background-size: cover;
+
+  .title {
+    margin-top: 160px;
+    margin-bottom: 35px;
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 1.25;
+    letter-spacing: .143em;
+
+    @include media-breakpoint-down(sm) {
+      margin-top: 70vw;
+      margin-bottom: 28px;
+      font-size: 28px;
+      line-height: 1.571;
+    }
+
+    &,
+    small {
+      color: #fff;
+    }
+
+    small {
+      display: block;
+      margin-top: 34px;
+      font-size: 14px;
+      line-height: 1.75;
+      letter-spacing: .15em;
+
+      @include media-breakpoint-down(sm) {
+        margin-top: 16px;
+        font-size: 11px;
+        line-height: 2;
+      }
+    }
+  }
+}

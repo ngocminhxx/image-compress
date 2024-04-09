@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+// ----------------------------------------------
+.alignnone,
+.alignleft,
+.alignright {
+  @include img-fluid();
+}
+
+.alignleft {
+  display: block;
+  margin-right: auto;
+  margin-bottom: 1em;
+  margin-left: auto;
+
+  @include media-breakpoint-up(sm) {
+    float: left;
+    margin-right: 15px;
+  }
+}
+
+.alignright {
+  display: block;
+  margin-right: auto;
+  margin-bottom: 1em;
+  margin-left: auto;
+
+  @include media-breakpoint-up(sm) {
+    float: right;
+    margin-left: 15px;
+  }
+}
+
+// ----------------------------------------------
+.screen-reader-text {
+  display: none;
+}
+
+// ----------------------------------------------
+.editor-area {
+  min-width: 0;
+  margin: 10px;
+  background-color: transparent;
+  border-top: 0;
+  border-bottom: 0;
+
+  img {
+    max-width: none;
+  }
+}
+
+// ----------------------------------------------
+.post-thumbnail {
+  @include media-breakpoint-up(sm) {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+
+  img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+// ----------------------------------------------
+.entry-title {
+  margin-top: 0;
+}
+
+// ----------------------------------------------
+.byline,
+.updated:not(.published) {
+  display: none;
+}
+
+// ----------------------------------------------
+.entry-date {
+  margin-right: 10px;
+}
+
+// ----------------------------------------------
+// Gutenberg editor width
+.wp-block {
+  width: auto !important;
+  max-width: none !important;
+}
+
+// ----------------------------------------------
+.wp-block-image {
+  img {
+    height: auto;
+  }
+}
+
+// ----------------------------------------------
+// admin classic editor
+.wp-autoresize {
+  padding: 15px !important;
+
+  &,
+  p,
+  .lead {
+    font-size: 15px;
+    font-weight: $lead-font-weight;
+    line-height: 2;
+    letter-spacing: .09em;
+  }
+}
