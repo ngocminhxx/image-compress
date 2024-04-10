@@ -10,6 +10,7 @@ document.getElementById("compress-btn").addEventListener("click", () => {
     // If only one file is selected, compress it and provide a download link
     new Compressor(files[0], {
       quality: quality,
+      convertSize: 1000000,
       success(result) {
         const compressedFile = new File([result], result.name, {
           type: result.type,

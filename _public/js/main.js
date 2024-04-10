@@ -7459,6 +7459,7 @@ document.getElementById("compress-btn").addEventListener("click", () => {
     // If only one file is selected, compress it and provide a download link
     new (compressorjs__WEBPACK_IMPORTED_MODULE_0___default())(files[0], {
       quality: quality,
+      convertSize: 1000000,
       success(result) {
         const compressedFile = new File([result], result.name, {
           type: result.type,
