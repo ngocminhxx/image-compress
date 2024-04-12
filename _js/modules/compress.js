@@ -1,15 +1,16 @@
 import Compressor from "compressorjs";
-import JSZip from "jszip"; // Ensure JSZip is included for multiple files
+import JSZip from "jszip";
 
 document.getElementById("compress-btn").addEventListener("click", () => {
   const files = document.getElementById("file-input").files;
   const quality = parseFloat(document.getElementById("quality-input").value);
+  const mimeType = document.getElementById("mime-type-select").value;
   const output = document.getElementById("result");
 
   if (files.length === 1) {
-    // If only one file is selected, compress it and provide a download link
     new Compressor(files[0], {
       quality: quality,
+      mimeType: mimeType,
       convertSize: 1000000,
       success(result) {
         const compressedFile = new File([result], result.name, {
@@ -30,13 +31,13 @@ document.getElementById("compress-btn").addEventListener("click", () => {
       },
     });
   } else {
-    // For multiple files, compress and add to zip
     const zip = new JSZip();
     let count = 0;
 
     for (let i = 0; i < files.length; i++) {
       new Compressor(files[i], {
         quality: quality,
+        mimeType: mimeType,
         success(result) {
           const compressedFile = new File([result], result.name, {
             type: result.type,
@@ -47,7 +48,6 @@ document.getElementById("compress-btn").addEventListener("click", () => {
           count++;
 
           if (count === files.length) {
-            // Once all files are compressed, provide a download link for the zip
             zip.generateAsync({ type: "blob" }).then((content) => {
               const link = document.createElement("a");
               link.href = URL.createObjectURL(content);
@@ -66,7 +66,6 @@ document.getElementById("compress-btn").addEventListener("click", () => {
   }
 });
 
-// Update the displayed quality value when the slider changes
 document.getElementById("quality-input").addEventListener("input", () => {
   const qualityValue = document.getElementById("quality-input").value;
   document.getElementById("quality-value").textContent = qualityValue;
